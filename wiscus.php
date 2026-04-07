@@ -1,6 +1,10 @@
 <?php
 /**
  * Plugin Name: Wiscus
+ * Description: Add Giscus (GitHub Discussions) comments to your WordPress site with Gutenberg block and shortcode support.
+ * Version: 0.1.0
+ * Author: Zakaria Elalaoui
+ * License: GPL2+
  */
 
 if (!defined('ABSPATH')) exit;
@@ -232,3 +236,39 @@ function wiscus_render() {
     <?php
     return ob_get_clean();
 }
+
+// New Appraoch
+
+function wiscus_render_with_ziko() {
+    static $loaded = false;
+    if ($loaded) return '';
+    $loaded = true;
+
+    $opts = get_option('wiscus_settings');
+
+    $mapping = $opts['mapping'] ?? 'pathname';
+    $term = $opts['term'] ?? '';
+
+    $config = [
+        'repo' => $opts['repo'] ?? '',
+        'repoId' => $opts['repoId'] ?? '',
+        'category' => $opts['category'] ?? '',
+        'categoryId' => $opts['categoryId'] ?? '',
+        'mapping' => $mapping,
+        'term' => $term,
+        'theme' => $opts['theme'] ?? 'light',
+    ];
+
+    ob_start();
+    ?>
+    <div 
+        class="wiscus-comments-ziko"
+        data-config='<?php echo json_encode($config); ?>'>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+
+add_shortcode('wiscus-ziko', function () {
+    return wiscus_render_with_ziko();
+});

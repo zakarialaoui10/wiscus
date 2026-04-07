@@ -23,3 +23,6 @@
 /* eslint-disable no-console */
 console.log( 'Hello World! (from create-block-wiscus block)' );
 /* eslint-enable no-console */
+import { CommentsSection } from "../components/CommentsSections.js";
+
+console.log(CommentsSection())
