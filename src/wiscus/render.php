@@ -12,10 +12,12 @@
 ?>
 <p <?php echo get_block_wrapper_attributes(); ?>>
 	<?php esc_html_e( 'Wiscus – hello from a dynamic block!', 'wiscus' ); ?>
-	<div class="wiscus-discussion"></div>
 </p>
 
-
+<div 
+	class="wiscus-discussion"
+	data-config='<?php echo json_encode($config); ?>'>
+</div>
 
 <?php
 // function render_wiscus_block() {
