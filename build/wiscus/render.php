@@ -10,14 +10,14 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 ?>
-<!-- <p <?php echo get_block_wrapper_attributes(); ?>>
+<p <?php echo get_block_wrapper_attributes(); ?>>
 	<?php esc_html_e( 'Wiscus – hello from a dynamic block!', 'wiscus' ); ?>
-</p> -->
+</p>
 
 <?php
-function render_wiscus_block() {
-    if (!function_exists('wiscus_render')) return '';
-    return wiscus_render();
-}
+// function render_wiscus_block() {
+//     if (!function_exists('wiscus_render')) return '';
+//     return wiscus_render();
+// }
 
-echo render_wiscus_block();
+// echo render_wiscus_block();

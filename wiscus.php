@@ -12,6 +12,7 @@ if (!defined('ABSPATH')) exit;
 // Register block
 add_action('init', function () {
     register_block_type(__DIR__ . '/build/wiscus');
+    // wp_register_block_types_from_metadata_collection( __DIR__ . '/build', __DIR__ . '/build/blocks-manifest.php' );
 });
 
 // Shortcode
@@ -207,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 
 // Shared render function
-function wiscus_render() {
+function wiscus_render_deprecated() {
     static $loaded = false;
     if ($loaded) return '';
     $loaded = true;
@@ -239,7 +240,7 @@ function wiscus_render() {
 
 // New Appraoch
 
-function wiscus_render_with_ziko() {
+function wiscus_render() {
     static $loaded = false;
     if ($loaded) return '';
     $loaded = true;
@@ -262,13 +263,9 @@ function wiscus_render_with_ziko() {
     ob_start();
     ?>
     <div 
-        class="wiscus-comments-ziko"
+        class="wiscus-discussion"
         data-config='<?php echo json_encode($config); ?>'>
     </div>
     <?php
     return ob_get_clean();
 }
-
-add_shortcode('wiscus-ziko', function () {
-    return wiscus_render_with_ziko();
-});
