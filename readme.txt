@@ -1,5 +1,5 @@
 === Wiscus ===
-Contributors:      The WordPress Contributors
+Contributors:      zakarialaoui10
 Tags:              github, giscus, zikojs, comments, discussions
 Tested up to:      6.8
 Stable tag:        1.0.0
@@ -45,7 +45,7 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
-= 0.1.0 =
+= 1.0.0 =
 * Release
 
 == Arbitrary section ==

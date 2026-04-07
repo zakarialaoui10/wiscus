@@ -5,6 +5,9 @@ It allows you to:
 - Use GitHub Discussions as a comment system
 - Configure everything from the WordPress admin panel
 
+## Demo
+- https://wiscus-blog.wasmer.app/?page_id=7
+
 ## Requirements
 
 Before using Wiscus:
