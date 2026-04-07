@@ -207,39 +207,6 @@ document.addEventListener('DOMContentLoaded', function () {
     <?php
 }
 
-// Shared render function
-function wiscus_render_deprecated() {
-    static $loaded = false;
-    if ($loaded) return '';
-    $loaded = true;
-
-    $opts = get_option('wiscus_settings');
-
-    $mapping = $opts['mapping'] ?? 'pathname';
-    $term = $opts['term'] ?? '';
-
-    ob_start();
-    ?>
-    <div id="wiscus-comments"></div>
-    <script src="https://giscus.app/client.js"
-        data-repo="<?php echo esc_attr($opts['repo'] ?? ''); ?>"
-        data-repo-id="<?php echo esc_attr($opts['repoId'] ?? ''); ?>"
-        data-category="<?php echo esc_attr($opts['category'] ?? ''); ?>"
-        data-category-id="<?php echo esc_attr($opts['categoryId'] ?? ''); ?>"
-        data-mapping="<?php echo esc_attr($mapping); ?>"
-        <?php if ($mapping === 'specific' && !empty($term)) : ?>
-            data-term="<?php echo esc_attr($term); ?>"
-        <?php endif; ?>
-        data-theme="<?php echo esc_attr($opts['theme'] ?? 'light'); ?>"
-        crossorigin="anonymous"
-        async>
-    </script>
-    <?php
-    return ob_get_clean();
-}
-
-// New Appraoch
-
 function wiscus_render() {
     static $loaded = false;
     if ($loaded) return '';
