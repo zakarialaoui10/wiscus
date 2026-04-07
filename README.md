@@ -6,7 +6,7 @@ It allows you to:
 - Configure everything from the WordPress admin panel
 
 ## Demo
-- https://wiscus-blog.wasmer.app/?page_id=7
+- https://zakaria-elalaoui-wp.wasmer.app/?page_id=6
 
 ## Requirements
 
