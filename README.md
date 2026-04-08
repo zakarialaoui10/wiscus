@@ -32,3 +32,7 @@ Before using Wiscus:
 ```md
 [wiscus]
 ```
+
+<!--
+use giscus widget 
+-->
