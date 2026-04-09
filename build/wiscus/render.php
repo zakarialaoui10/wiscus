@@ -26,6 +26,6 @@ if(!function_exists("render_wiscus_block")){
 	<?php echo render_wiscus_block(); ?>
 </div>
 
-<div class="wiscus-discussion" data-props="<?php echo $data ?>" data-engine='zikojs'> </div>
+<!-- <div class="wiscus-discussion" data-props="<?php echo $data ?>" data-engine='zikojs' data-from="render.php"> </div> -->
 
-<p> from render.php </p>
+<!-- <p> from render.php </p> -->

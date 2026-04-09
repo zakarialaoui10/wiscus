@@ -7814,24 +7814,19 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ziko_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ziko/dom */ "./node_modules/ziko/src/dom/index.js");
 /* harmony import */ var giscus__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! giscus */ "./node_modules/giscus/dist/giscus.mjs");
-// import Giscus from '@giscus/react'
-// import { createRoot } from 'react-dom/client';
 
 const {
   giscus_widget
 } = ziko_dom__WEBPACK_IMPORTED_MODULE_0__.tags;
-
-
-// console.log(111)
 
 const giscus_roots = [...document.getElementsByClassName('wiscus-discussion')];
 giscus_roots.forEach(root => {
   const config = JSON.parse(root.dataset.config ?? '{}');
   const G = giscus_widget(config);
   G.mount(root);
-  // console.log(config);
-  // const app_root = createRoot(root);
-  // app_root.render(<Giscus {...config} loading="lazy"/>)
+});
+console.log({
+  giscus_roots
 });
 })();
 

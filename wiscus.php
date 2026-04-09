@@ -18,10 +18,6 @@ add_action('init', function () {
     // wp_register_block_types_from_metadata_collection( __DIR__ . '/build', __DIR__ . '/build/blocks-manifest.php' );
 });
 
-// Shortcode
-add_shortcode('wiscus', function () {
-    return wiscus_render();
-});
 
 // Admin menu
 add_action('admin_menu', function () {
@@ -210,44 +206,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <?php
 }
 
-// Shared render function
-function wiscus_render() {
-    static $loaded = false;
-    if ($loaded) return '';
-    $loaded = true;
-
-    $opts = get_option('wiscus_settings');
-
-    $mapping = $opts['mapping'] ?? 'pathname';
-    $term = $opts['term'] ?? '';
-
-    ob_start();
-    ?>
-    <div id="wiscus-comments"></div>
-    <script src="https://giscus.app/client.js"
-        data-repo="<?php echo esc_attr($opts['repo'] ?? ''); ?>"
-        data-repo-id="<?php echo esc_attr($opts['repoId'] ?? ''); ?>"
-        data-category="<?php echo esc_attr($opts['category'] ?? ''); ?>"
-        data-category-id="<?php echo esc_attr($opts['categoryId'] ?? ''); ?>"
-        data-mapping="<?php echo esc_attr($mapping); ?>"
-        <?php if ($mapping === 'specific' && !empty($term)) : ?>
-            data-term="<?php echo esc_attr($term); ?>"
-        <?php endif; ?>
-        data-theme="<?php echo esc_attr($opts['theme'] ?? 'light'); ?>"
-        crossorigin="anonymous"
-        async>
-    </script>
-    <?php
-    return ob_get_clean();
-}
-
-// New Appraoch
-
-function wiscus_render_with_js() {
-    static $loaded = false;
-    if ($loaded) return '';
-    $loaded = true;
-
+function get_props_from_admin_panel(){
     $opts = get_option('wiscus_settings');
 
     $mapping = $opts['mapping'] ?? 'pathname';
@@ -263,20 +222,38 @@ function wiscus_render_with_js() {
         'theme' => $opts['theme'] ?? 'light',
     ];
 
+    return $config;
+}
+
+function wiscus_render_with_js() {
+    static $loaded = false;
+    if ($loaded) return '';
+    $loaded = true;
+
+    $config = get_props_from_admin_panel(); 
     ob_start();
     ?>
     <div 
         class="wiscus-discussion"
-        data-config='<?php echo json_encode($config); ?>'>
+        data-config='<?php echo json_encode($config); ?>'
+        data-from="wiscus.php"
+    >
     </div>
     <?php
     return ob_get_clean();
 }
 
-add_shortcode('wiscus-js', function () {
-    return wiscus_render_with_js();
-});
+add_shortcode('wiscus', function () {
+    wp_enqueue_script(
+        'wiscus-view',
+        plugin_dir_url(__FILE__) . 'build/wiscus/view.js',
+        [],
+        null,
+        true
+    );
 
-add_shortcode('wiscus-w', function () {
-    return wiscus_render_widget();
+    wp_script_add_data('wiscus-view', 'type', 'module');
+    $config = get_props_from_admin_panel();
+    $data = esc_attr(json_encode($config));
+    return "<div class='wiscus-discussion' data-config='{$data}' data-engine='zikojs' data-from='wiscus-js'></div>";
 });
