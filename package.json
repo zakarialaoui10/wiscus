@@ -1,6 +1,6 @@
 {
 	"name": "wiscus",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "Example block scaffolded with Create Block tool.",
 	"author": "The WordPress Contributors",
 	"license": "GPL-2.0-or-later",
@@ -15,12 +15,11 @@
 		"start": "wp-scripts start --webpack-copy-php --blocks-manifest"
 	},
 	"dependencies": {
-		"@giscus/react": "^3.1.0",
 		"@wordpress/block-editor": "latest",
 		"@wordpress/blocks": "latest",
 		"@wordpress/i18n": "latest",
-		"ziko": "^1.0.0",
-		"zikofy": "^0.7.2"
+		"giscus": "^1.6.0",
+		"ziko": "^1.0.0"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^31.8.0"

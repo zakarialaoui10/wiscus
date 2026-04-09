@@ -8,9 +8,8 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-create-block-wiscus {
-  background-color: #21759b;
-  color: #fff;
-  padding: 2px;
+  padding: 1em;
+  border: 1px darkblue solid;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

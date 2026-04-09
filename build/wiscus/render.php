@@ -10,19 +10,22 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 ?>
-<p <?php echo get_block_wrapper_attributes(); ?>>
-	<?php esc_html_e( 'Wiscus – hello from a dynamic block!', 'wiscus' ); ?>
-</p>
-
-<div 
-	class="wiscus-discussion"
-	data-config='<?php echo json_encode($config); ?>'>
-</div>
 
 <?php
-// function render_wiscus_block() {
-//     if (!function_exists('wiscus_render')) return '';
-//     return wiscus_render();
-// }
+if(!function_exists("render_wiscus_block")){
+	function render_wiscus_block() {
+		if (!function_exists('wiscus_render_with_js')) return '';
+		return wiscus_render_with_js();
+	}
+}
 
 // echo render_wiscus_block();
+?>
+
+<div <?php echo get_block_wrapper_attributes(); ?>>
+	<?php echo render_wiscus_block(); ?>
+</div>
+
+<div class="wiscus-discussion" data-props="<?php echo $data ?>" data-engine='zikojs'> </div>
+
+<p> from render.php </p>
