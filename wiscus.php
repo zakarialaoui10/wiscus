@@ -12,8 +12,8 @@
 
 if (!defined('ABSPATH')) exit;
 
-include 'utils/admin-props.php';
-include 'utils/admin.php';
+include 'admin/admin-props.php';
+include 'admin/admin.php';
 
 $json = file_get_contents(plugin_dir_path(__FILE__) . 'data/themes.json');
 $themes = json_decode($json, true);
