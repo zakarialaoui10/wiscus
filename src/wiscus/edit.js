@@ -32,8 +32,10 @@ import './editor.scss';
 
 export default function Edit() {
     return (
-        <div {...useBlockProps()}>
+        <div {...useBlockProps()} >
             <p>Wiscus comments will appear here on the frontend.</p>
+            <div>Input</div>
+            <div className="wiscus-discussion" data-config='{"repo":"zakarialaoui10\\/wiscus","repoid":"R_kgDOR7ZWrA","category":"Announcements","categoryid":"DIC_kwDOR7ZWrM4C6MM9","mapping":"pathname","term":"","theme":"light"}'></div>
         </div>
     );
 }

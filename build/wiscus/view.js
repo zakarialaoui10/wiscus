@@ -7823,6 +7823,7 @@ const giscus_roots = [...document.getElementsByClassName('wiscus-discussion')];
 giscus_roots.forEach(root => {
   const config = JSON.parse(root.dataset.config ?? '{}');
   const G = giscus_widget(config);
+  root.innerHTML = "";
   G.mount(root);
 });
 console.log({
