@@ -1,8 +1,8 @@
 {
 	"name": "wiscus",
 	"version": "1.0.0",
-	"description": "Example block scaffolded with Create Block tool.",
-	"author": "The WordPress Contributors",
+	"description": "Add Giscus (GitHub Discussions) comments to your WordPress site with Gutenberg block and shortcode support",
+	"author": "zakaria elalaoui",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
 	"scripts": {
