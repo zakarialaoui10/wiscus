@@ -1,55 +1,121 @@
 === Wiscus ===
 Contributors:      zakarialaoui10
+Donate link: https://ko-fi.com/zakariaelalaoui
 Tags:              github, giscus, zikojs, comments, discussions
 Tested up to:      6.8
 Stable tag:        1.0.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-Example block scaffolded with Create Block tool.
+Bring GitHub Discussions to WordPress using Giscus.
 
 == Description ==
 
-This is the long description. No limit, and you can use Markdown (as well as in the following sections).
+Wiscus is a lightweight WordPress plugin that integrates the Giscus comment system, allowing you to use GitHub Discussions as a modern comment platform for your website.
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+Instead of storing comments in your WordPress database, Wiscus connects your site to a GitHub repository and uses Discussions to manage conversations. Each post or page can automatically create and link to a corresponding discussion thread.
+
+Key features:
+
+    - GitHub-powered comments using Giscus
+    - Automatic discussion thread creation
+    - Lightweight and privacy-friendly (no ads, no tracking)
+    - Easy integration via widget or shortcode
+    - Customizable themes and mapping options
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
+To install the plugin, please follow the following steps:
 
-e.g.
+1. Create a GitHub Repository
+    - Go to GitHub and log in.
+    - Click New Repository.
+    - Give your repository a name (e.g., my-comments).
+    - Set it to Public (required for Giscus).
+    - Click Create Repository.
 
-1. Upload the plugin files to the `/wp-content/plugins/wiscus` directory, or install the plugin through the WordPress plugins screen directly.
-1. Activate the plugin through the 'Plugins' screen in WordPress
+2. Enable Discussions
+    - Open your repository.
+    - Go to Settings → Features.
+    - Check Discussions to enable it.
+    - Save changes.
 
+3. Install the Giscus App
+    - Visit Giscus : https://github.com/apps/giscus.
+    - Click Install.
+    - Choose your GitHub account or organization.
+    - Select the repository you created.
+    - Complete the installation.
+    
+4. Get Your Giscus Configuration
+    - Go to the Giscus website.
+    - Fill in:
+        - Your repository name
+        - Discussion category (e.g., General)
+        - Customize options (theme, mapping, etc.).
+    - Copy the generated configuration (you’ll use it in Wiscus).
+
+5. Install the Wiscus Plugin in WordPress
+    - Log in to your WordPress dashboard.
+    - Go to Plugins → Add New:
+    - Search for Wiscus, or
+    - Upload it manually to /wp-content/plugins/.
+    - Click Install Now and then Activate.
+
+6. Configure Wiscus
+    - Go to Settings → Wiscus.
+    - Paste your Giscus configuration.
+    - Save changes.
+
+7. Add Wiscus to Your Site
+    - Option A: Widget
+        - Go to Appearance → Widgets.
+        - Add the Wiscus widget to a sidebar or footer.
+        - Adjust settings as needed.
+    - Option B: Shortcode
+        - Add this to any page or post : [wiscus]
 
 == Frequently Asked Questions ==
 
 = A question that someone might have =
 
-An answer to that question.
+= What is Wiscus ? =
 
-= What about foo bar? =
+Wiscus is a WordPress plugin that integrates the Giscus comment system, allowing you to use GitHub Discussions as a modern commenting platform on your website.
 
-Answer to foo bar dilemma.
+= Do I need a GitHub account to use Wiscus ? =
+
+Yes. Wiscus requires a GitHub account and a public repository with Discussions enabled to store and manage comments.
+
+= How do I connect Wiscus to my site ? =
+
+After installing the plugin, go to Settings > Wiscus and paste your Giscus configuration generated from the Giscus website.
+
+= Why are comments not showing ? =
+
+Make sure your repository is public, Discussions are enabled, the Giscus app is installed, and your configuration settings are correct.
+
+= Can I use Wiscus without widgets ? =
+
+Yes. You can display Wiscus on any page or post using the shortcode [wiscus].
+
+= Can I customize the appearance ? =
+
+Yes. You can customize themes (light/dark), language, and other options through your Giscus configuration.
+
+= Is Wiscus free to use ? =
+
+Yes. Wiscus and Giscus are free to use, but they rely on GitHub’s infrastructure.
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+1. The screenshot highlights the WordPress Settings menu with the Wiscus option visible at the bottom. It indicates where users can access the Wiscus plugin settings.
+2. The screenshot shows the Wiscus settings page in the WordPress dashboard under Settings → Wiscus.
+It includes fields for GitHub repository details, mapping, category, and theme configuration.
+3. The screenshot shows the WordPress editor with the [wiscus] shortcode added to a page. On the right, the live preview displays the Giscus-powered comment section working with a sample comment.
+4. The screenshot shows a GitHub Discussions thread automatically generated by Wiscus for a WordPress page. It includes the post title, linked URL, and a synced comment from the site.
 
 == Changelog ==
 
 = 1.0.0 =
-* Release
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above. This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation." Arbitrary sections will be shown below the built-in sections outlined above.
+* Initial release
