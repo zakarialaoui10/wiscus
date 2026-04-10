@@ -10,7 +10,7 @@ function admin_menu_init() {
     );
 }
 
-function admin_init($themes) {
+function admin_init() {
 
     register_setting('wiscus_settings_group', 'wiscus_settings', function ($input) {
         return [
@@ -95,6 +95,58 @@ function admin_init($themes) {
             echo "<input type='text' name='wiscus_settings[$key]' value='" . esc_attr($value) . "' />";
         }, 'wiscus', 'wiscus_main');
     }
+}
+
+// Settings page UI
+function wiscus_settings_page() {
+    ?>
+    <div class="wrap">
+        <h1>Wiscus Settings</h1>
+
+        <form method="post" action="options.php">
+            <?php
+            settings_fields('wiscus_settings_group');
+            do_settings_sections('wiscus');
+            submit_button();
+            ?>
+        </form>
+		<!--<script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const theme = document.getElementById('wiscus-theme');
+                    const custom = document.getElementById('wiscus-custom-theme');
+
+                    function toggleCustom() {
+                        if (theme.value === 'custom') {
+                            custom.style.display = 'block';
+                        } else {
+                            custom.style.display = 'none';
+                        }
+                    }
+
+                    theme.addEventListener('change', toggleCustom);
+                    toggleCustom();
+                });
+            </script> -->
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const mapping = document.getElementById('wiscus-mapping');
+        const termWrapper = document.getElementById('wiscus-term-wrapper');
+
+        function toggleTerm() {
+            if (mapping.value === 'specific') {
+                termWrapper.style.display = 'block';
+            } else {
+                termWrapper.style.display = 'none';
+            }
+        }
+
+        mapping.addEventListener('change', toggleTerm);
+        toggleTerm();
+    });
+    </script>
+    <?php
 }
 
 // ?>

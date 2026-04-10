@@ -12,8 +12,8 @@
 
 if (!defined('ABSPATH')) exit;
 
-include 'includes/utils.php';
-include 'includes/admin.php';
+include 'utils/admin-props.php';
+include 'utils/admin.php';
 
 $json = file_get_contents(plugin_dir_path(__FILE__) . 'data/themes.json');
 $themes = json_decode($json, true);
@@ -31,59 +31,6 @@ add_action('admin_init', 'admin_init');
 // add_action('admin_init',function() use ($themes) {
 //     return admin_init($themes);
 // });
-
-// Settings page UI
-function wiscus_settings_page() {
-    ?>
-    <div class="wrap">
-        <h1>Wiscus Settings</h1>
-
-        <form method="post" action="options.php">
-            <?php
-            settings_fields('wiscus_settings_group');
-            do_settings_sections('wiscus');
-            submit_button();
-            ?>
-        </form>
-		<!-- <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const theme = document.getElementById('wiscus-theme');
-    const custom = document.getElementById('wiscus-custom-theme');
-
-    function toggleCustom() {
-        if (theme.value === 'custom') {
-            custom.style.display = 'block';
-        } else {
-            custom.style.display = 'none';
-        }
-    }
-
-    theme.addEventListener('change', toggleCustom);
-    toggleCustom();
-});
-</script> -->
-    </div>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const mapping = document.getElementById('wiscus-mapping');
-        const termWrapper = document.getElementById('wiscus-term-wrapper');
-
-        function toggleTerm() {
-            if (mapping.value === 'specific') {
-                termWrapper.style.display = 'block';
-            } else {
-                termWrapper.style.display = 'none';
-            }
-        }
-
-        mapping.addEventListener('change', toggleTerm);
-        toggleTerm();
-    });
-    </script>
-    <?php
-}
-
 
 
 function wiscus_render_with_js() {
