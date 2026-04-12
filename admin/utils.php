@@ -1,5 +1,5 @@
 <?php
-function get_props_from_admin_panel(){
+function wiscus_get_props_from_admin_panel(){
     $opts = get_option('wiscus_settings');
 
     $mapping = $opts['mapping'] ?? 'pathname';

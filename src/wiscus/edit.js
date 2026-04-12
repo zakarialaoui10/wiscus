@@ -37,7 +37,6 @@ export default function Edit({ attributes, setAttributes }) {
 
         if (wasSaving && !isSaving) {
             channel.postMessage({ type: 'reload' });
-            console.log('[WP Live Reload] Broadcast sent');
             wasSaving = false;
         }
     });

@@ -1,6 +1,6 @@
 <?php
 
-function admin_menu_init() {
+function wiscus_admin_menu_init() {
     add_options_page(
         'Wiscus Settings',
         'Wiscus',
@@ -10,7 +10,7 @@ function admin_menu_init() {
     );
 }
 
-function admin_init() {
+function wiscus_admin_init() {
 
     register_setting('wiscus_settings_group', 'wiscus_settings', function ($input) {
         return [
@@ -48,7 +48,7 @@ function admin_init() {
                 echo "<select name='wiscus_settings[mapping]' id='wiscus-mapping'>";
                 foreach ($options as $opt) {
                     $selected = selected($value, $opt, false);
-                    echo "<option value='$opt' $selected>$opt</option>";
+                    echo '<option value="' . esc_attr($opt) . '" ' . selected($selected, true, false) . '>' . esc_html($opt) . '</option>';
                 }
                 echo "</select>";
 
@@ -58,7 +58,7 @@ function admin_init() {
                 $term = $opts['term'] ?? '';
                 $style = ($value === 'specific') ? '' : 'style="display:none;"';
 
-                echo "<div id='wiscus-term-wrapper' $style>";
+                echo '<div id="wiscus-term-wrapper" ' . esc_attr($style) . '>';
                 echo "<input type='text' name='wiscus_settings[term]' placeholder='Enter unique ID' value='" . esc_attr($term) . "' />";
                 echo "</div>";
 
@@ -72,7 +72,7 @@ function admin_init() {
 
 				foreach ($themes as $val => $label) {
 					$selected = selected($value, $val, false);
-					echo "<option value='$val' $selected>$label</option>";
+					echo '<option value="' . esc_attr($val) . '" ' . selected($selected, true, false) . '>' . esc_html($label) . '</option>';
 				}
 
 				echo "</select>";
@@ -92,7 +92,7 @@ function admin_init() {
 			}
 
             // Default input
-            echo "<input type='text' name='wiscus_settings[$key]' value='" . esc_attr($value) . "' />";
+            echo '<input type="text" name="wiscus_settings[' . esc_attr($key) . ']" value="' . esc_attr($value) . '" />';
         }, 'wiscus', 'wiscus_main');
     }
 }

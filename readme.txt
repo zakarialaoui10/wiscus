@@ -3,7 +3,7 @@ Contributors:      zakarialaoui10
 Donate link: https://ko-fi.com/zakariaelalaoui
 Tags:              github, giscus, zikojs, comments, discussions
 Tested up to:      6.9
-Stable tag:        1.1.0
+Stable tag:        1.1.1
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -118,9 +118,15 @@ It includes fields for GitHub repository details, mapping, category, and theme c
 
 == Changelog ==
 
-= 1.0.0 =
-* Initial release
+= 1.1.1 =
+* Improved security by escaping all output properly (esc_attr, esc_html)
+* Replaced json_encode with wp_json_encode for WordPress compatibility
+* Fixed PHPCS warnings (OutputNotEscaped, MissingVersion, DirectQuery, NoCaching)
 
 = 1.1.0 =
 * Fix editor attributes
 * Add Hot page reloading
+
+= 1.0.0 =
+* Initial release
+

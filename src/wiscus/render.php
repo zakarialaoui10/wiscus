@@ -1,31 +1,35 @@
 <?php
 /**
- * PHP file to use when rendering the block type on the server to show on the front end.
+ * Server-side rendering for the Wiscus block.
  *
- * The following variables are exposed to the file:
- *     $attributes (array): The block attributes.
- *     $content (string): The block default content.
- *     $block (WP_Block): The block instance.
- *
- * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
+ * Available variables:
+ * $attributes (array)
+ * $content (string)
+ * $block (WP_Block)
  */
-?>
 
-<?php
-if(!function_exists("render_wiscus_block")){
+if ( ! function_exists( 'render_wiscus_block' ) ) {
 	function render_wiscus_block() {
-		if (!function_exists('wiscus_render_with_js')) return '';
+		if ( ! function_exists( 'wiscus_render_with_js' ) ) {
+			return '';
+		}
+
 		return wiscus_render_with_js();
 	}
 }
 
-$data = esc_attr(wp_json_encode($attributes));
-// echo render_wiscus_block();
+// Encode once, escape on output
+$wiscus_data = wp_json_encode( $attributes );
 ?>
 
-<!-- <div <?php echo get_block_wrapper_attributes(); ?>>
-	<?php echo render_wiscus_block(); ?>
-</div> -->
+<!--
+<div <?php echo wp_kses_post( get_block_wrapper_attributes() ); ?>>
+	<?php echo wp_kses_post( render_wiscus_block() ); ?>
+</div>
+-->
 
-
-<section data-config="<?php echo $data ?>" data-engine='zikojs' class="wiscus-discussion">From render.php</section>
+<section 
+	data-config="<?php echo esc_attr( $wiscus_data ); ?>" 
+	data-engine="zikojs" 
+	class="wiscus-discussion">
+</section>
