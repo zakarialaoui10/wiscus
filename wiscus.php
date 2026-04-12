@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/zakarialaoui10/wiscus
  * GitHub Plugin URI: https://github.com/zakarialaoui10/wiscus
  * Description: Add Giscus (GitHub Discussions) comments to your WordPress site with Gutenberg block and shortcode support.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: zakarialaoui10
  * Author URI: https://github.com/zakarialaoui10
  * License: GPL2+

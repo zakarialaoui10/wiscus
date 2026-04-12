@@ -3,7 +3,7 @@ Contributors:      zakarialaoui10
 Donate link: https://ko-fi.com/zakariaelalaoui
 Tags:              github, giscus, zikojs, comments, discussions
 Tested up to:      6.9
-Stable tag:        1.0.0
+Stable tag:        1.1.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,7 @@ Key features:
     - Lightweight and privacy-friendly (no ads, no tracking)
     - Easy integration via widget or shortcode
     - Customizable themes and mapping options
+    - Hot page reloading
 
 == Installation ==
 

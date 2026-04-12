@@ -1,6 +1,6 @@
 {
 	"name": "wiscus",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "Add Giscus (GitHub Discussions) comments to your WordPress site with Gutenberg block and shortcode support",
 	"author": "zakaria elalaoui",
 	"license": "GPL-2.0-or-later",
