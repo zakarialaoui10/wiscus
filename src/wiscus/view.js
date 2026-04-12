@@ -10,4 +10,4 @@ giscus_roots.forEach(root => {
     G.mount(root)
 })
 
-console.log({giscus_roots})
+console.log('Wiscus View loaded ...')

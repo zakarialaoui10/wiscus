@@ -19,13 +19,13 @@ if(!function_exists("render_wiscus_block")){
 	}
 }
 
+$data = esc_attr(wp_json_encode($attributes));
 // echo render_wiscus_block();
 ?>
 
-<div <?php echo get_block_wrapper_attributes(); ?>>
+<!-- <div <?php echo get_block_wrapper_attributes(); ?>>
 	<?php echo render_wiscus_block(); ?>
-</div>
+</div> -->
 
-<!-- <div class="wiscus-discussion" data-props="<?php echo $data ?>" data-engine='zikojs' data-from="render.php"> </div> -->
 
-<!-- <p> from render.php </p> -->
+<section data-config="<?php echo $data ?>" data-engine='zikojs' class="wiscus-discussion">From render.php</section>
