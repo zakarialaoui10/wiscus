@@ -8,6 +8,8 @@
  * $block (WP_Block)
  */
 
+if (!defined('ABSPATH')) exit;
+
 if ( ! function_exists( 'render_wiscus_block' ) ) {
 	function render_wiscus_block() {
 		if ( ! function_exists( 'wiscus_render_with_js' ) ) {

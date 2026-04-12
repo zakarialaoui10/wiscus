@@ -1,4 +1,6 @@
 <?php
+if (!defined('ABSPATH')) exit;
+
 function wiscus_get_props_from_admin_panel(){
     $opts = get_option('wiscus_settings');
 

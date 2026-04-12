@@ -3,7 +3,7 @@
  * Plugin Name: Wiscus
  * Plugin URI: https://github.com/zakarialaoui10/wiscus
  * Description: Add Giscus (GitHub Discussions) comments to your WordPress site with Gutenberg block and shortcode support.
- * Version: 1.1.1
+ * Version: 1.1.2
  * Author: zakarialaoui10
  * Author URI: https://github.com/zakarialaoui10
  * License: GPL-2.0-or-later
@@ -17,12 +17,12 @@ require_once plugin_dir_path( __FILE__ ) . 'admin/utils.php';
 require_once plugin_dir_path( __FILE__ ) . 'admin/admin.php';
 
 // Load themes safely
-$themes = array();
-$themes_file = plugin_dir_path( __FILE__ ) . 'data/themes.json';
+$wiscus_themes = array();
+$wiscus_themes_file = plugin_dir_path( __FILE__ ) . 'data/themes.json';
 
-if ( file_exists( $themes_file ) ) {
-	$json   = file_get_contents( $themes_file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
-	$themes = json_decode( $json, true );
+if ( file_exists( $wiscus_themes_file ) ) {
+	$wiscus_json   = file_get_contents( $wiscus_themes_file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+	$wiscus_themes = json_decode( $wiscus_json, true );
 }
 
 // Register block

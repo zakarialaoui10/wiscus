@@ -1,4 +1,5 @@
 <?php
+if (!defined('ABSPATH')) exit;
 
 function wiscus_admin_menu_init() {
     add_options_page(

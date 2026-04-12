@@ -11,20 +11,20 @@ delete_option( 'wiscus_settings' );
 if ( is_multisite() ) {
 	global $wpdb;
 
-	$cache_key = 'wiscus_blog_ids';
-	$cache_group = 'wiscus';
+	$wiscus_cache_key = 'wiscus_blog_ids';
+	$wiscus_cache_group = 'wiscus';
 
-	$blog_ids = wp_cache_get( $cache_key, $cache_group );
+	$wiscus_blog_ids = wp_cache_get( $wiscus_cache_key, $wiscus_cache_group );
 
-	if ( false === $blog_ids ) {
+	if ( false === $wiscus_blog_ids ) {
 		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
-		$blog_ids = $wpdb->get_col( "SELECT blog_id FROM {$wpdb->blogs}" );
+		$wiscus_blog_ids = $wpdb->get_col( "SELECT blog_id FROM {$wpdb->blogs}" );
 
-		wp_cache_set( $cache_key, $blog_ids, $cache_group );
+		wp_cache_set( $wiscus_cache_key, $wiscus_blog_ids, $wiscus_cache_group );
 	}
 
-	if ( ! empty( $blog_ids ) && is_array( $blog_ids ) ) {
-		foreach ( $blog_ids as $blog_id ) {
+	if ( ! empty( $wiscus_blog_ids ) && is_array( $wiscus_blog_ids ) ) {
+		foreach ( $wiscus_blog_ids as $blog_id ) {
 			switch_to_blog( (int) $blog_id );
 
 			delete_option( 'wiscus_settings' );
