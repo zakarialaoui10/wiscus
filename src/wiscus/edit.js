@@ -10,8 +10,39 @@ import {
     SelectControl
 } from '@wordpress/components';
 import './editor.scss';
+import 'giscus';
+
+import themes from "../../data/themes.json"
+const theme_options = Object.entries(themes).map(([value, label]) => new Object({label, value}))
+
 
 export default function Edit({ attributes, setAttributes }) {
+    
+(function () {
+    if (!('BroadcastChannel' in window)) return;
+
+    const channel = new BroadcastChannel('wp-live-reload');
+    let wasSaving = false;
+
+    wp.data.subscribe(() => {
+        const select = wp.data.select('core/editor');
+        if (!select) return;
+
+        const isSaving = select.isSavingPost();
+        const isAutosaving = select.isAutosavingPost();
+
+        if (isSaving && !isAutosaving) {
+            wasSaving = true;
+        }
+
+        if (wasSaving && !isSaving) {
+            channel.postMessage({ type: 'reload' });
+            console.log('[WP Live Reload] Broadcast sent');
+            wasSaving = false;
+        }
+    });
+})();
+
     const {
         repo,
         repoid,
@@ -85,12 +116,7 @@ export default function Edit({ attributes, setAttributes }) {
                     <SelectControl
                         label={__('Theme', 'wiscus')}
                         value={theme}
-                        options={[
-                            { label: 'Light', value: 'light' },
-                            { label: 'Dark', value: 'dark' },
-                            { label: 'Preferred Color Scheme', value: 'preferred_color_scheme' },
-                            { label: 'Transparent Dark', value: 'transparent_dark' }
-                        ]}
+                        options={theme_options}
                         onChange={(value) => setAttributes({ theme: value })}
                     />
 
@@ -105,7 +131,8 @@ export default function Edit({ attributes, setAttributes }) {
                     className="wiscus-discussion"
                     data-props={JSON.stringify(attributes)}
                 >
-                    <p>{__('Preview not available in editor.', 'wiscus')}</p>
+                <p>{__('Preview not available in editor.', 'wiscus')}</p>
+                <giscus-widget {...attributes} loading="lazy"></giscus-widget>
                 </div>
             </div>
         </>
