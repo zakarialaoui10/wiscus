@@ -120,3 +120,7 @@ It includes fields for GitHub repository details, mapping, category, and theme c
 
 = 1.0.0 =
 * Initial release
+
+= 1.1.0 =
+* Fix editor attributes
+* Add Hot page reloading
