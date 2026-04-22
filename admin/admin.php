@@ -11,6 +11,19 @@ function wiscus_admin_menu_init() {
     );
 }
 
+function wiscus_admin_enqueue_scripts($hook) {
+    if ($hook !== 'settings_page_wiscus') return;
+
+    wp_enqueue_script(
+        'wiscus-admin',
+        plugin_dir_url(__FILE__) . 'admin.js',
+        [],
+        '1.0.0',
+        ['in_footer' => true]
+    );
+}
+add_action('admin_enqueue_scripts', 'wiscus_admin_enqueue_scripts');
+
 function wiscus_admin_init() {
 
     register_setting('wiscus_settings_group', 'wiscus_settings', function ($input) {
@@ -80,13 +93,6 @@ function wiscus_admin_init() {
 				
 
 				echo "<p class='description'>Choose a Giscus theme</p>";
-
-				// // 👇 ADD THIS PART (custom input)
-				// $customTheme = $opts['customTheme'] ?? '';
-				// $style = ($value === 'custom') ? '' : 'style=\"display:none;\"';
-
-				// echo "<div id='wiscus-custom-theme' $style>";
-				// echo "<input type='text' name='wiscus_settings[customTheme]' placeholder='Enter custom theme URL' value='" . esc_attr($customTheme) . "' />";
 				echo "</div>";
 
 				return;
@@ -111,43 +117,8 @@ function wiscus_settings_page() {
             submit_button();
             ?>
         </form>
-		<!--<script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    const theme = document.getElementById('wiscus-theme');
-                    const custom = document.getElementById('wiscus-custom-theme');
-
-                    function toggleCustom() {
-                        if (theme.value === 'custom') {
-                            custom.style.display = 'block';
-                        } else {
-                            custom.style.display = 'none';
-                        }
-                    }
-
-                    theme.addEventListener('change', toggleCustom);
-                    toggleCustom();
-                });
-            </script> -->
     </div>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const mapping = document.getElementById('wiscus-mapping');
-        const termWrapper = document.getElementById('wiscus-term-wrapper');
-
-        function toggleTerm() {
-            if (mapping.value === 'specific') {
-                termWrapper.style.display = 'block';
-            } else {
-                termWrapper.style.display = 'none';
-            }
-        }
-
-        mapping.addEventListener('change', toggleTerm);
-        toggleTerm();
-    });
-    </script>
     <?php
 }
 
-// ?>
+?>

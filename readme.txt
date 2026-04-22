@@ -24,6 +24,50 @@ Key features:
     - Customizable themes and mapping options
     - Hot page reloading
 
+== Development ==
+
+This plugin uses a build process (webpack) to generate production files located in /build.
+
+The full, human-readable source code is available here:
+https://github.com/zakarialaoui10/wiscus
+
+=== Project structure ===
+- /src   : original source code
+- /build : compiled/minified production files (used in production)
+
+=== Getting started ===
+
+Clone the repository:
+git clone https://github.com/zakarialaoui10/wiscus.git
+cd wiscus
+
+Install dependencies:
+npm install
+
+Run development mode:
+npm run dev
+
+Build for production:
+npm run build
+
+=== Forking & Contributing ===
+
+You are welcome to fork and contribute:
+
+1. Fork the repository on GitHub
+2. Clone your fork:
+   git clone https://github.com/YOUR-USERNAME/wiscus.git
+3. Create a new branch:
+   git checkout -b feature/your-feature-name
+4. Commit your changes and push:
+   git push origin feature/your-feature-name
+5. Open a Pull Request
+
+=== Notes ===
+
+- Do not edit files inside /build directly.
+- Always make changes in /src and rebuild.
+
 == Installation ==
 
 To install the plugin, please follow the following steps:
@@ -119,6 +163,7 @@ It includes fields for GitHub repository details, mapping, category, and theme c
 == Changelog ==
 
 = 1.1.2 =
+* Replace inline JavaScript in admin.php with proper WordPress script enqueue system using wp_enqueue_script
 * Fix WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound warnings by prefixing global variables with "wiscus" keyword.
 
 = 1.1.1 =
