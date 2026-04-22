@@ -6,7 +6,7 @@ It allows you to:
 - Configure everything from the WordPress admin panel
 
 ## Demo
-- https://zakaria-elalaoui-wp.wasmer.app/?page_id=6
+- https://zakaria-elalaoui-wp.wasmer.app/wiscus-bringing-github-discussions-to-wordpress/
 
 ## Requirements
 
