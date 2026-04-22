@@ -35,6 +35,14 @@ https://github.com/zakarialaoui10/wiscus
 - /src   : original source code
 - /build : compiled/minified production files (used in production)
 
+=== Dependencies ===
+
+This plugin relies on the following external libraries:
+
+- giscus : https://giscus.app, used for embedding GitHub Discussions-based comments system.
+- ziko : https://github.com/zikojs/ziko, a Custom UI/library used for frontend rendering and components.
+
+
 === Getting started ===
 
 Clone the repository:
