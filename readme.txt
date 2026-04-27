@@ -29,10 +29,10 @@ Key features:
 This plugin uses a build process (webpack) to generate production files located in /build.
 
 The full, human-readable source code is available here:
-https://github.com/zakarialaoui10/wiscus
+[https://github.com/zakarialaoui10/wiscus](https://github.com/zakarialaoui10/wiscus)
 
 === Project structure ===
-- `/src`   : original source code
+- [/src](https://github.com/zakarialaoui10/wiscus/tree/main/src/)   : original source code
 - `/build` : compiled/minified production files (used in production)
 
 === Dependencies ===
@@ -50,19 +50,13 @@ git clone https://github.com/zakarialaoui10/wiscus.git
 cd wiscus
 
 Install dependencies:
-```bash
-npm install
-```
+`npm install`
 
 Run development mode:
-```bash
-npm run dev
-```
+`npm run dev`
 
 Build for production:
-```bash
-npm run build
-```
+`npm run build`
 
 === Forking & Contributing ===
 
