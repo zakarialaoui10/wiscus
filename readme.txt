@@ -32,15 +32,15 @@ The full, human-readable source code is available here:
 https://github.com/zakarialaoui10/wiscus
 
 === Project structure ===
-- /src   : original source code
-- /build : compiled/minified production files (used in production)
+- `/src`   : original source code
+- `/build` : compiled/minified production files (used in production)
 
 === Dependencies ===
 
 This plugin relies on the following external libraries:
 
-- giscus : https://giscus.app, used for embedding GitHub Discussions-based comments system.
-- ziko : https://github.com/zikojs/ziko, a Custom UI/library used for frontend rendering and components.
+- [giscus](https://giscus.app) used for embedding GitHub Discussions-based comments system.
+- [ziko](https://github.com/zikojs/ziko) a custom UI/library used for frontend rendering and components.
 
 
 === Getting started ===
@@ -50,13 +50,19 @@ git clone https://github.com/zakarialaoui10/wiscus.git
 cd wiscus
 
 Install dependencies:
+```bash
 npm install
+```
 
 Run development mode:
+```bash
 npm run dev
+```
 
 Build for production:
+```bash
 npm run build
+```
 
 === Forking & Contributing ===
 
